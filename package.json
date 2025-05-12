@@ -1,16 +1,27 @@
 {
-  "name": "version",
+  "name": "@jpbnetley/version",
   "version": "0.0.0",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "type": "module",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
+  "files": [
+    "dist"
+  ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "tsc --noEmit",
+    "build":"tsc",
     "version:dev": "npm version --preid=dev prerelease",
     "version:patch": "npm version patch",
     "version:minor": "npm version minor",
     "version:major": "npm version major",
-    "version:publish":"git push --follow-tags && npm publish"
+    "version:publish": "git push --follow-tags && npm publish --access public"
   },
-  "author": "",
+  "author": "Jonathan Netley",
   "license": "ISC",
-  "description": ""
+  "description": "",
+  "devDependencies": {
+    "typescript": "5.8.3"
+  }
 }
