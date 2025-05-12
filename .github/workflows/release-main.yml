@@ -8,8 +8,8 @@ on:
         type: choice
         description: Version type
         options: 
-        - minor
         - patch
+        - minor
         - major
       
 env:
