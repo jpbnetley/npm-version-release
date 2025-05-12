@@ -63,3 +63,13 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         NPM_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+    
+    - name: Merge master into dev with pull request
+      id: merge_dev
+      run: gh pr create --base dev --head main --title "Merge main into dev" --body "Merging main into dev" --label "auto-merge" --assignee ${{ github.actor }} --reviewer ${{ github.actor }} --draft
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GITHUB_ENV: ${{ github.env }}
+        GITHUB_REPOSITORY: ${{ github.repository }}
+        GITHUB_ACTOR: ${{ github.actor }}
