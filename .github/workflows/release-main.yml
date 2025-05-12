@@ -1,0 +1,66 @@
+# This is a basic workflow to help you get started with Actions
+
+name: Build and deploy dev
+
+on:
+  workflow_dispatch:
+   inputs:
+      version:
+        type: choice
+        description: Version type
+        options: 
+        - minor
+        - patch
+        - major
+      
+env:
+  node_version: 22
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "install"
+  
+  build-and-publish:
+    name: Build and publish
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+      packages: write
+
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Set up Node.js ${{ env.node_version }}
+      uses: actions/setup-node@v4
+      with:
+        node-version: ${{ env.node_version }}
+        cache: 'npm'
+        cache-dependency-path: package-lock.json
+        registry-url: 'https://npm.pkg.github.com'
+    
+    - name: Install dependencies
+      run: npm ci
+    
+    - name: Build
+      run: npm run build
+
+    - name: Setup git user info
+      run: | 
+        git config user.name "github-actions[bot]"
+        git config user.email "41898282+github-actions[bot]@users.noreply.github.com"   
+
+    - name: Create version
+      id: create_version
+      run: npm run version:${{inputs.version}}
+    
+    - name: Publish
+      run: npm run version:publish
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        NPM_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
