@@ -1,6 +1,6 @@
 {
   "name": "@jpbnetley/npm-version-release",
-  "version": "0.1.2-dev.0",
+  "version": "0.1.2",
   "main": "dist/index.js",
   "type": "module",
   "publishConfig": {
