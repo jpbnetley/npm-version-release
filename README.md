@@ -7,3 +7,9 @@
 ```yml
       pull-requests: write
 ```
+
+- For publishing the package, the action required
+```yml
+      contents: write
+      packages: write
+```
