@@ -48,7 +48,7 @@ jobs:
       run: npm run version:dev
     
     - name: Publish
-      run: npm run version:publish
+      run: npm run version:publish:dev
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         NPM_TOKEN: ${{ secrets.GITHUB_TOKEN }}
