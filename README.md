@@ -13,3 +13,6 @@
       contents: write
       packages: write
 ```
+
+### Ref
+Package that installes this package: https://github.com/jpbnetley/npm-version-consume
