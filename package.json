@@ -2,6 +2,7 @@
   "name": "@jpbnetley/npm-version-release",
   "version": "1.0.2-dev.0",
   "main": "dist/index.js",
+  "module": "dist/index.js",
   "type": "module",
   "publishConfig": {
     "registry": "https://npm.pkg.github.com"
@@ -24,5 +25,10 @@
   "description": "",
   "devDependencies": {
     "typescript": "5.8.3"
+  },
+  "exports": {
+    ".": {
+      "import": "./dist/index.js"
+    }
   }
 }
