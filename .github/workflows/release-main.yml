@@ -3,8 +3,6 @@
 name: Build and deploy production
 on:
   workflow_dispatch:
-    branches:
-          - main
    inputs:
       version:
         type: choice
@@ -34,6 +32,8 @@ jobs:
       packages: write
       pull-requests: write
 
+    # only runs if on the 'main' branch
+    if: github.ref == 'refs/heads/main' 
     steps:
     - uses: actions/checkout@v4
     
