@@ -3,6 +3,8 @@
 name: Build and deploy production
 on:
   workflow_dispatch:
+    branches:
+          - main
    inputs:
       version:
         type: choice
@@ -68,6 +70,6 @@ jobs:
     
     - name: Merge main into dev with pull request
       id: merge_dev
-      run: gh pr create --base dev --head main --title "Merge main into dev after release" --body "Merging main into dev [skip ci]" --assignee ${{ github.actor }}
+      run: gh pr create --base dev --head main --title "Merge main into dev after release" --body "Merging main into dev" --assignee ${{ github.actor }}
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
