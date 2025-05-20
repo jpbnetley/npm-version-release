@@ -25,6 +25,8 @@ jobs:
     outputs:
       is_main: ${{ steps.check_branch.outputs.is_main }}
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
 
     steps:
     - name: Check deployment branch
