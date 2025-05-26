@@ -84,3 +84,14 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         NPM_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Get package version
+      id: package-version
+      run: |
+        PACKAGE_VERSION=$(node -p "require('./package.json').version")
+        echo "::set-output name=PACKAGE_VERSION::$PACKAGE_VERSION"
+
+    - name: Set job summary
+      run: |
+        echo "## Package Version" >> $GITHUB_STEP_SUMMARY
+        echo "- Version: ${{ steps.package-version.outputs.PACKAGE_VERSION }}" >> $GITHUB_STEP_SUMMARY
