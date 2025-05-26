@@ -48,6 +48,9 @@ jobs:
      # only runs if on the 'main' branch
     if: needs.check-deployment-branch.outputs.is_main == 'true'
 
+    permissions:
+     contents: read
+
     steps:
     - uses: actions/checkout@v4
     
