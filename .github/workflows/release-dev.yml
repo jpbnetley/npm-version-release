@@ -89,7 +89,7 @@ jobs:
       id: package-version
       run: |
         PACKAGE_VERSION=$(node -p "require('./package.json').version")
-        echo "::set-output name=PACKAGE_VERSION::$PACKAGE_VERSION"
+        echo "PACKAGE_VERSION=$PACKAGE_VERSION" >> $GITHUB_OUTPUT
 
     - name: Set job summary
       run: |
