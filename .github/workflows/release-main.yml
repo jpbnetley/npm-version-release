@@ -21,6 +21,7 @@ concurrency:
 
 jobs:
   build-and-publish:
+    name: Build and publish main
     permissions:
       contents: write
       packages: write
