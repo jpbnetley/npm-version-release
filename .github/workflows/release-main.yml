@@ -40,4 +40,5 @@ jobs:
       version_command: 'npm run version:${{ github.event.inputs.version }}'
       publish_command: 'npm run version:publish'
       is_pre_release: true
+      pre_release_branch_name: 'dev'
     secrets: inherit
