@@ -25,6 +25,7 @@ jobs:
     permissions:
       contents: write
       packages: write
+      pull-requests: write
     uses: jpbnetley/npm-version-release-action/.github/workflows/action.yml@main
     with:
       node_version: 22
@@ -38,4 +39,5 @@ jobs:
       deployment_branch_name: 'main'
       version_command: 'npm run version:${{ github.event.inputs.version }}'
       publish_command: 'npm run version:publish'
+      is_pre_release: true
     secrets: inherit
