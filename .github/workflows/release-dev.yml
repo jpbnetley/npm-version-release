@@ -14,6 +14,7 @@ jobs:
     permissions:
       contents: write
       packages: write
+      pull-requests: write
     uses: jpbnetley/npm-version-release-action/.github/workflows/action.yml@main
     with:
       node_version: 22
