@@ -10,6 +10,9 @@ concurrency:
 
 jobs:
   build-and-publish:
+    permissions:
+      contents: write
+      packages: write
     uses: jpbnetley/npm-version-release-action/.github/workflows/action.yml@main
     with:
       node_version: 22
