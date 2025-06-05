@@ -10,6 +10,7 @@ concurrency:
 
 jobs:
   build-and-publish:
+    name: Build and publish dev
     permissions:
       contents: write
       packages: write
