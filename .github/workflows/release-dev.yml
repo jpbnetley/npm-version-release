@@ -24,4 +24,3 @@ jobs:
       version_command: 'npm run version:dev'
       publish_command: 'npm run version:publish:dev'
     secrets: inherit
-
