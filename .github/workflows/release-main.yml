@@ -9,10 +9,6 @@ on:
         - patch
         - minor
         - major
-      branch:
-        type: string
-        description: Branch to deploy
-        default: main
       
 env:
   node_version: 22
