@@ -25,8 +25,8 @@ jobs:
       install_command: 'npm ci'
       build_command: 'npm run build'
       build_output_path: 'dist'
-      deployment_branch_name: ${{ github.ref_name }}
       version_command: 'npm run version:dev'
       publish_command: 'npm run version:publish:dev'
-      is_pre_release: true
+      pre_release_branch_name: 'dev'
+      release_branch_name: 'main'
     secrets: inherit
