@@ -31,4 +31,5 @@ It is important to merge the production release version changes down to dev befo
 This ensures that the correct version is used on dev for the next dev releases.
 
 ### Ref
-This package is consumed the project: https://github.com/jpbnetley/npm-version-consume
+- Reusable action use for releases: https://github.com/jpbnetley/npm-version-release-action
+- This package is consumed the project: https://github.com/jpbnetley/npm-version-consume
